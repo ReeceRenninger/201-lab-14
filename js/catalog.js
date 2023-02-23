@@ -27,7 +27,6 @@ function handleSubmit(event) {
 
   // DONE: Prevent the page from reloading
   event.preventDefault();
-  console.log('Default Stop Working.');
   // Do all the things ...
   addSelectedItemToCart();
   state.cart.saveToLocalStorage();
@@ -48,14 +47,19 @@ function addSelectedItemToCart() {
 
 }
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
+// DONE: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
-  // TODO: Get the item and quantity from the form
-  let formItem = document.getElementById('catalog').item;
-  console.log('This is the formitem ' + formItem);
+  // DONE: Get the item and quantity from the form
+  let formItem = document.getElementById('items').value;
+  let formQuantity = document.getElementById('quantity').value;
 
 
-  // TODO: Add a new element to the cartContents div with that information
+  // DONE: Add a new element to the cartContents div with that information
+  let cartContents = document.getElementById('cartContents');
+  let contents = document.createElement('p');
+  contents.textContent = `You selected ${formQuantity} of ${formItem}`;
+  cartContents.appendChild(contents);
+
 }
 
 // Set up the "submit" event listener on the form.

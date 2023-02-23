@@ -24,20 +24,28 @@ Cart.prototype.addItem = function(product, quantity) {
 };
 
 Cart.prototype.saveToLocalStorage = function() {
-  // TODO: Fill in this instance method to save the contents of the cart to localStorage
+  // DONE: Fill in this instance method to save the contents of the cart to localStorage
   let stringifiedProdArr = JSON.stringify(state.allProducts);
   localStorage.setItem('allProducts', stringifiedProdArr);
   let retrievedArr = localStorage.getItem('allProducts');
   let parsedData =  JSON.parse(retrievedArr);
 };
 
-Cart.prototype.removeItem = function(item) {
+Cart.prototype.removeItem = function(item) { // maybe action as parameter?
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
 };
 
 Cart.prototype.updateCounter = function() {
-  // TODO: Update the cart count in the header nav with the number of items in the Cart
+  // DONE: Update the cart count in the header nav with the number of items in the Cart
+  let navBar = document.querySelector('nav');
+  let quantity = document.getElementById('quantity').value;
+  let cartCount = document.createElement('p');
+  let counter = quantity;
+  cartCount.textContent = (counter);
+  console.log(quantity);
+  navBar.appendChild(cartCount);
+
 };
 
 const CartItem = function(product, quantity) {
@@ -45,7 +53,7 @@ const CartItem = function(product, quantity) {
   this.quantity = quantity;
 };
 
-// Product contructor.
+// Product constructor.
 const Product = function(filePath, name) {
   this.filePath = filePath;
   this.name = name;
