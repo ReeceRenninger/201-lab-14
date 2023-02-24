@@ -17,22 +17,44 @@ function renderCart() {
   showCart();
 }
 
-// TODO: Remove all of the rows (tr) in the cart table (tbody)
-function clearCart() {}
+// DONE: Remove all of the rows (tr) in the cart table (tbody)
+function clearCart() {
+  let cart = document.getElementById ('cart');
+  cart.removeChild(cart.firstChild);
+}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
 
-  // TODO: Find the table body
-  let tbody = document.getElementById('cart');
-  // TODO: Iterate over the items in the cart
-  // for loop using LS stored info?
-  // TODO: Create a TR
-  // TODO: Create a TD for the delete link, quantity,  and the item
-  // TODO: Add the TR to the TBODY and each of the TD's to the TR
-
 }
 
+  // TODO: Find the table body
+  let tbodyFill = document.getElementById('cart');
+  
+ 
+  
+  // for loop using LS stored info?
+  for (let i = 0; i < state.cart.length; i++) {
+    // TODO: Create a TR
+    let tRow = document.createElement('tr');
+    tRow.textContent = state.cart[i];
+    tbodyFill.appendChild('tRow');
+  }
+  // TODO: Create a TD for the delete link, quantity,  and the item
+  let tdDelete = document.createElement('td');
+  console.log(cartItems)
+  // tdDelete.textContent = 
+  tRow.appenchChild('td');
+  let tdQuantity = document.createElement('td');
+  tRow.appenchChild('td');
+  let tdItem = document.createElement('td');
+  tRow.appenchChild('td');
+  
+  
+  // DONE: Add the TR to the TBODY and each of the TD's to the TR
+  
+  // tbody.appendChild(cartRow);
+  
 function removeItemFromCart(event) {
 
   // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
